@@ -1,0 +1,40 @@
+@keyframes float {
+
+    0%,100% {
+
+        transform:translateY(0);
+
+    }
+
+
+    50% {
+
+        transform:translateY(-15px);
+
+    }
+
+}
+
+
+#opening {
+
+    animation:
+
+    fadeOut 4s forwards;
+
+    animation-delay:5s;
+
+}
+
+
+@keyframes fadeOut {
+
+    to {
+
+        opacity:0;
+
+        pointer-events:none;
+
+    }
+
+}

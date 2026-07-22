@@ -1,0 +1,1584 @@
+* {
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+
+}
+
+
+html,body {
+
+width:100%;
+height:100%;
+
+overflow:hidden;
+
+font-family:Georgia,serif;
+
+}
+
+
+
+
+
+/* SCENES */
+
+
+.scene {
+
+position:fixed;
+
+inset:0;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+transition:
+opacity 1s ease;
+
+z-index:10;
+
+}
+
+
+
+.hidden {
+
+opacity:0;
+
+pointer-events:none;
+
+visibility:hidden;
+
+}
+
+
+
+
+/* INTRO */
+
+
+#opening {
+
+background:
+radial-gradient(circle,#252044,#09091a);
+
+color:white;
+
+}
+
+
+
+.intro-content {
+
+text-align:center;
+
+animation:
+appear 2s ease;
+
+}
+
+
+
+.flower {
+
+font-size:70px;
+
+animation:
+float 3s infinite;
+
+}
+
+
+
+h1 {
+
+margin-top:30px;
+
+font-weight:normal;
+
+}
+
+
+
+h1 span {
+
+color:#ffbfd5;
+
+}
+
+
+
+
+
+/* ENVELOPE */
+
+
+#envelope-page {
+
+background:
+linear-gradient(120deg,#b7a6d9,#f3b7c8);
+
+}
+
+
+
+.envelope {
+
+width:280px;
+
+height:180px;
+
+background:#fff3dc;
+
+border-radius:15px;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+box-shadow:
+0 20px 50px rgba(0,0,0,.3);
+
+cursor:pointer;
+
+position:relative;
+
+transition:1s;
+
+}
+
+
+
+.envelope:hover {
+
+transform:
+translateY(-10px);
+
+}
+
+
+
+.seal {
+
+width:55px;
+
+height:55px;
+
+border-radius:50%;
+
+background:#b94c6b;
+
+color:white;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+margin-bottom:20px;
+
+}
+
+
+
+
+
+/* LETTER */
+
+
+#letter-page {
+
+background:#f5eadc;
+
+}
+
+
+
+.letter {
+
+width:80%;
+
+max-width:600px;
+
+min-height:60%;
+
+background:#fffdf7;
+
+padding:50px;
+
+box-shadow:
+0 20px 60px rgba(0,0,0,.2);
+
+opacity:0;
+
+transform:
+scale(.8)
+translateY(50px);
+
+transition:1s;
+
+}
+
+
+
+.letter.show {
+
+opacity:1;
+
+transform:
+scale(1)
+translateY(0);
+
+}
+
+
+
+.letter h2 {
+
+font-family:"Brush Script MT";
+
+font-size:40px;
+
+text-align:center;
+
+}
+
+
+
+.letter-text {
+
+margin-top:40px;
+
+font-family:"Segoe Print";
+
+font-size:20px;
+
+line-height:2;
+
+}
+
+
+
+
+
+/* SCRAPBOOK */
+
+
+#scrapbook {
+
+background:#fff8ef;
+
+}
+
+
+
+.page {
+
+width:85%;
+
+height:80%;
+
+background:white;
+
+padding:50px;
+
+box-shadow:
+0 20px 60px rgba(0,0,0,.2);
+
+text-align:center;
+
+}
+
+
+
+
+
+/* ANIMATIONS */
+
+
+@keyframes float {
+
+50% {
+
+transform:translateY(-15px);
+
+}
+
+}
+
+
+
+@keyframes appear {
+
+from {
+
+opacity:0;
+
+transform:scale(.8);
+
+}
+
+to {
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+/* Letter decorations */
+
+
+.letter {
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+
+
+.letter::before {
+
+
+content:"";
+
+
+position:absolute;
+
+inset:0;
+
+
+background:
+
+radial-gradient(
+rgba(120,80,50,.08) 1px,
+transparent 1px
+);
+
+
+background-size:
+
+12px 12px;
+
+
+pointer-events:none;
+
+}
+
+
+
+.letter::after {
+
+
+content:"🌸";
+
+
+position:absolute;
+
+
+right:30px;
+
+bottom:25px;
+
+
+font-size:35px;
+
+
+transform:
+rotate(15deg);
+
+
+}
+
+
+
+.letter h2,
+.letter-text {
+
+position:relative;
+
+z-index:2;
+
+}
+.pressed-flower {
+
+font-size:45px;
+
+position:absolute;
+
+right:50px;
+
+bottom:40px;
+
+transform:
+rotate(15deg);
+
+}
+/* Scrapbook design */
+
+
+.scrapbook-page {
+
+
+    width:85%;
+
+    height:80%;
+
+
+    background:#fffdf7;
+
+
+    padding:60px;
+
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.2);
+
+
+    transform:
+    rotate(-2deg);
+
+
+    position:relative;
+
+
+    animation:
+    pageAppear 1.5s ease;
+
+
+}
+
+
+
+
+.scrapbook-page::before {
+
+
+    content:"";
+
+
+    position:absolute;
+
+    inset:0;
+
+
+    background:
+
+    radial-gradient(
+    rgba(120,80,50,.08) 1px,
+    transparent 1px
+    );
+
+
+    background-size:
+    12px 12px;
+
+
+}
+
+
+
+.scrapbook-page h2,
+.scrapbook-page p {
+
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+
+
+.scrapbook-page h2 {
+
+
+    font-family:
+    "Brush Script MT",
+    cursive;
+
+
+    font-size:45px;
+
+
+}
+
+
+
+.tape {
+
+
+    position:absolute;
+
+
+    top:20px;
+
+
+    left:50%;
+
+
+    transform:
+    translateX(-50%)
+    rotate(4deg);
+
+
+    width:120px;
+
+    height:35px;
+
+
+    background:
+    rgba(255,220,170,.8);
+
+
+}
+
+
+
+
+.paper-holes {
+
+
+    position:absolute;
+
+
+    left:20px;
+
+    top:50px;
+
+}
+
+
+
+.paper-holes span {
+
+
+    display:block;
+
+
+    width:15px;
+
+    height:15px;
+
+
+    background:#ddd;
+
+
+    border-radius:50%;
+
+
+    margin:25px;
+
+
+}
+
+
+
+@keyframes pageAppear {
+
+
+from {
+
+opacity:0;
+
+transform:
+scale(.8)
+rotate(-5deg);
+
+}
+
+
+to {
+
+opacity:1;
+
+transform:
+scale(1)
+rotate(-2deg);
+
+}
+
+
+}
+/* Memory pages */
+
+
+#pages {
+
+width:100%;
+
+height:100%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+
+
+.memory-page {
+
+
+position:absolute;
+
+
+width:85%;
+
+height:80%;
+
+
+background:#fffdf7;
+
+
+padding:60px;
+
+
+box-shadow:
+0 20px 60px rgba(0,0,0,.2);
+
+
+opacity:0;
+
+
+transform:
+scale(.9);
+
+
+transition:
+1s ease;
+
+
+}
+
+
+
+.memory-page.active {
+
+
+opacity:1;
+
+
+transform:
+scale(1);
+
+
+}
+
+
+
+.memory-page.fade {
+
+
+opacity:0;
+
+
+transform:
+scale(1.1);
+
+
+}
+
+
+
+#petals {
+
+
+position:absolute;
+
+
+inset:0;
+
+
+pointer-events:none;
+
+
+}
+
+
+
+.petal {
+
+
+position:absolute;
+
+
+font-size:25px;
+
+
+animation:
+petalFly 1.5s forwards;
+
+
+}
+
+
+
+@keyframes petalFly {
+
+
+from {
+
+
+transform:
+translateY(0)
+rotate(0);
+
+
+opacity:1;
+
+
+}
+
+
+
+to {
+
+
+transform:
+translateY(-200px)
+rotate(360deg);
+
+
+opacity:0;
+
+
+}
+
+
+}
+/* Drawing memory */
+
+
+.art-memory {
+
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+
+}
+
+
+
+.polaroid-card {
+
+
+background:#fff;
+
+
+padding:25px;
+
+
+padding-bottom:35px;
+
+
+width:60%;
+
+
+max-width:500px;
+
+
+box-shadow:
+
+0 20px 50px rgba(0,0,0,.2);
+
+
+
+transform:
+
+rotate(-3deg);
+
+
+
+position:relative;
+
+
+}
+
+
+
+.polaroid-card img {
+
+
+width:100%;
+
+
+max-height:55vh;
+
+
+object-fit:contain;
+
+
+}
+
+
+
+.polaroid-card p {
+
+
+margin-top:25px;
+
+
+font-family:
+
+"Segoe Print",
+cursive;
+
+
+font-size:20px;
+
+
+color:#6b5260;
+
+
+text-align:center;
+
+
+}
+
+
+
+.tape {
+
+
+position:absolute;
+
+
+top:-20px;
+
+
+left:50%;
+
+
+transform:
+
+translateX(-50%)
+rotate(5deg);
+
+
+
+width:120px;
+
+
+height:35px;
+
+
+
+background:
+
+rgba(255,220,170,.8);
+
+
+
+}
+.art-memory .polaroid-card {
+
+
+animation:
+
+memoryAppear 1.5s ease;
+
+
+}
+
+
+
+@keyframes memoryAppear {
+
+
+from {
+
+
+opacity:0;
+
+
+transform:
+
+translateY(50px)
+rotate(-10deg);
+
+
+}
+
+
+
+to {
+
+
+opacity:1;
+
+
+transform:
+
+translateY(0)
+rotate(-3deg);
+
+
+}
+
+
+}
+/* Music page */
+
+
+.music-memory {
+
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+
+}
+
+
+
+.music-card {
+
+
+width:70%;
+
+max-width:500px;
+
+
+background:#181818;
+
+
+color:white;
+
+
+border-radius:20px;
+
+
+padding:25px;
+
+
+display:flex;
+
+
+align-items:center;
+
+
+gap:20px;
+
+
+box-shadow:
+
+0 20px 50px rgba(0,0,0,.3);
+
+
+
+transform:
+
+rotate(-2deg);
+
+
+}
+
+
+
+.album-cover {
+
+
+width:100px;
+
+height:100px;
+
+
+background:#d8b6c8;
+
+
+border-radius:10px;
+
+
+display:flex;
+
+
+justify-content:center;
+
+
+align-items:center;
+
+
+font-size:40px;
+
+
+}
+
+
+
+.song-details {
+
+
+flex:1;
+
+
+}
+
+
+
+.song-details h2 {
+
+
+font-family:
+
+"Segoe Print",
+cursive;
+
+
+}
+
+
+
+.song-details p {
+
+
+opacity:.7;
+
+
+}
+
+
+
+.play {
+
+
+background:white;
+
+
+color:black;
+
+
+width:45px;
+
+height:45px;
+
+
+border-radius:50%;
+
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+
+}
+
+
+
+.music-caption {
+
+
+margin-top:40px;
+
+
+font-family:
+
+"Brush Script MT",
+cursive;
+
+
+font-size:28px;
+
+
+}
+/* Drawing sheets */
+
+
+.drawing-sheet {
+
+
+background:#fff;
+
+
+width:55%;
+
+
+max-width:500px;
+
+
+padding:25px;
+
+
+padding-bottom:40px;
+
+
+box-shadow:
+
+0 20px 50px rgba(0,0,0,.2);
+
+
+
+transform:
+
+rotate(3deg);
+
+
+
+position:relative;
+
+
+
+animation:
+
+memoryAppear 1.2s ease;
+
+
+}
+
+
+
+.second-drawing {
+
+
+transform:
+
+rotate(-4deg);
+
+
+}
+
+
+
+.drawing-sheet img {
+
+
+width:100%;
+
+
+max-height:55vh;
+
+
+object-fit:contain;
+
+
+}
+
+
+
+.drawing-sheet p {
+
+
+margin-top:25px;
+
+
+font-family:
+
+"Segoe Print",
+cursive;
+
+
+font-size:20px;
+
+
+color:#6b5260;
+
+
+text-align:center;
+
+
+}
+/* Park photo page */
+
+
+.photo-memory {
+
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+
+}
+
+
+
+.park-polaroid {
+
+
+background:white;
+
+
+padding:25px;
+
+
+padding-bottom:50px;
+
+
+width:60%;
+
+
+max-width:600px;
+
+
+box-shadow:
+
+0 25px 60px rgba(0,0,0,.25);
+
+
+
+transform:
+
+rotate(-3deg);
+
+
+
+position:relative;
+
+
+animation:
+
+memoryAppear 1.5s ease;
+
+
+}
+
+
+
+.park-polaroid img {
+
+
+width:100%;
+
+
+max-height:55vh;
+
+
+object-fit:cover;
+
+
+}
+
+
+
+.park-polaroid p {
+
+
+font-family:
+
+"Brush Script MT",
+cursive;
+
+
+font-size:32px;
+
+
+text-align:center;
+
+
+margin-top:25px;
+
+
+color:#6b5260;
+
+
+}
+
+
+
+.photo-tape {
+
+
+position:absolute;
+
+
+top:-20px;
+
+
+left:50%;
+
+
+transform:
+
+translateX(-50%)
+rotate(3deg);
+
+
+width:130px;
+
+
+height:35px;
+
+
+background:
+
+rgba(255,220,170,.8);
+
+
+}
+/* Ending page */
+
+
+.ending-page {
+
+
+background:
+
+linear-gradient(
+180deg,
+#08091d,
+#161032
+);
+
+
+color:white;
+
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+
+}
+
+
+
+.night {
+
+
+text-align:center;
+
+
+animation:
+
+memoryAppear 2s ease;
+
+
+}
+
+
+
+.moon {
+
+
+font-size:90px;
+
+
+animation:
+
+float 4s infinite;
+
+
+}
+
+
+
+.stars {
+
+
+font-size:35px;
+
+
+letter-spacing:20px;
+
+
+margin:40px;
+
+
+color:#ffe9b5;
+
+
+}
+
+
+
+.night h2 {
+
+
+font-family:
+
+"Brush Script MT",
+cursive;
+
+
+font-size:50px;
+
+
+}
+
+
+
+.night p {
+
+
+margin-top:30px;
+
+
+font-family:
+
+"Segoe Print",
+cursive;
+
+
+font-size:22px;
+
+
+opacity:.8;
+
+
+}
+/* Smooth music fade helper */
+
+#background-music {
+
+display:none;
+
+}
+/* Floating petals */
+
+
+#floating-petals {
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+overflow:hidden;
+
+z-index:5;
+
+}
+
+
+
+.floating-petal {
+
+
+position:absolute;
+
+
+font-size:25px;
+
+
+opacity:.7;
+
+
+animation:
+
+floatPetal linear infinite;
+
+
+}
+
+
+
+@keyframes floatPetal {
+
+
+0% {
+
+
+transform:
+
+translateY(110vh)
+rotate(0deg);
+
+
+}
+
+
+
+100% {
+
+
+transform:
+
+translateY(-20vh)
+rotate(360deg);
+
+
+}
+
+
+}
+/* Hidden surprise */
+
+
+#secret-star {
+
+
+margin-top:50px;
+
+
+font-size:35px;
+
+
+cursor:pointer;
+
+
+animation:
+
+float 3s infinite;
+
+
+}
+
+
+
+#secret-note {
+
+
+margin-top:30px;
+
+
+font-family:
+
+"Segoe Print",
+cursive;
+
+
+font-size:22px;
+
+
+opacity:0;
+
+
+max-width:400px;
+
+
+transition:1s;
+
+
+}
+
+
+
+#secret-note.show {
+
+
+opacity:1;
+
+
+}
